@@ -1,5 +1,5 @@
 body {
-    background-color: hsl(210, 100%, 10%);
+    background-color: hsl(208, 24%, 31%);
     margin: 0;
     padding: 100px;
 }
@@ -28,8 +28,18 @@ nav {
 #display {
     background-color: hsl(0, 0%, 79%);
     height: 75px;
-    text-align: right;
     margin-bottom: 20px;
+}
+
+#text {
+    margin: 0;
+    font-size: 26px;
+    padding: 7px;
+    text-align: right;
+}
+
+#text.small {
+    font-size: 15px;
 }
 
 #buttons {
