@@ -24,9 +24,16 @@ nav {
     background-color: hsl(0, 0%, 79%);
     height: 100px;
     text-align: right;
+    margin-bottom: 20px;
 }
 
 #buttons {
     display: flex;
     height: 560px;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
 }
