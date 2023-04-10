@@ -1,39 +1,42 @@
 body {
     background-color: hsl(210, 100%, 10%);
-    margin: 0;;
+    margin: 0;
 }
+
 nav {
     color: rgb(218, 217, 217);
     text-align: center;
+    margin: 50px 0px;
 }
 
+#footer {
+    align-self: flex-end;
+}
 #content {
     display: flex;
-    min-height: 720px;
+    min-height: 360px;
     justify-content: center;
     margin: 20px 0px;
 }
 
 #calculator {
     background-color: hsl(0, 0%, 20%);
-    width: 480px;
     padding: 20px;
 }
 
 #display {
     background-color: hsl(0, 0%, 79%);
-    height: 100px;
+    height: 75px;
     text-align: right;
     margin-bottom: 20px;
 }
 
 #buttons {
     display: flex;
-    height: 560px;
-    
 }
 
 .column {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
