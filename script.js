@@ -7,3 +7,28 @@ const btns = document.querySelectorAll('.column>button');
 for(let btn of btns){
     console.log(btn.innerText);
 }
+
+let firstNum;
+let operator;
+let secondNum;
+
+const operate = (a,b,operator) => {
+    switch (operator) {
+        case "+":
+        a = add(a,b);
+            break;
+        case "-":
+        a = subtract(a,b);
+            break;    
+        case "*":
+        a = multiply(a,b);
+            break;
+        case "/":
+        a = divide(a,b);
+            break;    
+        default: 
+            //put display "Error on operate"
+            break;
+    }
+    return a;
+}
