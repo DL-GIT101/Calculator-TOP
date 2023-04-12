@@ -33,14 +33,14 @@ nav {
     border-radius: 15px;
 }
 
-#text {
+.text {
     margin: 0;
     font-size: 26px;
     padding: 7px;
     text-align: right;
 }
 
-#text.small {
+.text.small {
     font-size: 15px;
 }
 
