@@ -3,11 +3,6 @@ const subtract = (a,b) => a - b;
 const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
 
-const btns = document.querySelectorAll('.column>button');
-for(let btn of btns){
-    console.log(btn.innerText);
-}
-
 let firstNum;
 let operator;
 let secondNum;
@@ -32,3 +27,12 @@ const operate = (a,b,operator) => {
     }
     return a;
 }
+
+const display = document.querySelector(".text.big");
+const btns = document.querySelectorAll('.column>.digit');
+for(let btn of btns){
+    btn.addEventListener("click", () =>{
+        
+    });
+}
+
