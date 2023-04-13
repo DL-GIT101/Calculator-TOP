@@ -32,14 +32,11 @@ const display = document.querySelector(".text.big");
 const btns = document.querySelectorAll('.column>.digit');
 for(let btn of btns){
     btn.addEventListener("click", () =>{
-        if(display.innerText === "0"){
-            if(btn.innerText === "."){
-                
-            }else{
-                display.innerText = "";
-            }
-        }
-        display.innerText += btn.innerText;
+            display.innerText += btn.innerText;
     });
 }
 
+const clearBTN = document.querySelector(".operator.clear");
+clearBTN.addEventListener("click", () =>{
+    display.innerText = "0";
+})
