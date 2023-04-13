@@ -28,15 +28,38 @@ const operate = (a,b,operator) => {
     return a;
 }
 
-const display = document.querySelector(".text.big");
-const btns = document.querySelectorAll('.column>.digit');
-for(let btn of btns){
-    btn.addEventListener("click", () =>{
-            display.innerText += btn.innerText;
+const bigDisplay = document.querySelector(".text.big");
+const digitBTNs = document.querySelectorAll('.column>.digit');
+
+for(let digit of digitBTNs){
+    digit.addEventListener("click", () =>{
+        display(digit.innerText);
     });
 }
 
+const display = (digit) => {
+    let bigDisplayText = bigDisplay.innerText;
+
+    if(bigDisplayText == "0"){
+        if(digit == "00"){
+            bigDisplay.innerText = "0";
+        }else if(digit == "."){
+            bigDisplay.innerText += digit;
+        }
+        else{
+            bigDisplay.innerText = "";
+            bigDisplay.innerText += digit;
+        }
+    }else if(bigDisplayText.includes(".") == true && digit == "."){
+        //none
+    }
+    else {
+        bigDisplay.innerText += digit;
+    }
+}
+
+//CLEAR BUTTON
 const clearBTN = document.querySelector(".operator.clear");
 clearBTN.addEventListener("click", () =>{
-    display.innerText = "0";
+    bigDisplay.innerText = "0";
 })
