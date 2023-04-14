@@ -67,6 +67,11 @@ nav {
     
 }
 
+.operator {
+    background-color: hsl(0, 32%, 40%);
+    color: hsl(0, 0%, 69%);
+}
+
 .operator.long {
     flex-grow: 1;
 }
