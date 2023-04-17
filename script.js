@@ -53,8 +53,22 @@ const display_In_Big = (digit) => {
     }
 
     display_value += digit;
-    console.log(`display_value: ${display_value}  digit: ${digit}`)
     bigDisplay.innerText = display_value;
 }
 
-const operatorBTN = document.querySelectorAll(".column>.operator");
+//operator buttons plus C
+const operatorBTN = document.querySelectorAll(".operator");
+
+for(let sign of operatorBTN){
+    sign.addEventListener('click', () =>{
+        solving(sign.innerText);
+    });
+}
+
+const solving = (sign) => {
+    if(sign == "C"){
+        display_value = "0";
+        bigDisplay.innerText = display_value;
+    }else{}
+}
+
