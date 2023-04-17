@@ -3,10 +3,9 @@ const subtract = (a,b) => a - b;
 const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
 
-//string 
-let firstNum = "";
-let operator = "";
-let secondNum = "";
+let first_Num;
+let operator;
+let second_Num;
 
 const operate = (a,b,operator) => {
     let result;
@@ -40,14 +39,22 @@ for(let digit of digitBTNs){
         display_In_Big(digit.innerText);
     });
 }
-
+// check the previous function for reference
+let display_value = "0";
 const display_In_Big = (digit) => {
-    if(firstNum == "0" && digit == "0"){
-        firstNum = "";
+    if(digit == "."){
+        if(display_value == "0"){
+
+        }else if(display_value.includes(".") == true){
+            digit = "";
+        }
+    }else if(display_value == "0"){
+        display_value = "";
     }
-    firstNum += digit;
-    console.log(`firstNum: ${firstNum}  digit: ${digit}`)
-    bigDisplay.innerText = firstNum;
+
+    display_value += digit;
+    console.log(`display_value: ${display_value}  digit: ${digit}`)
+    bigDisplay.innerText = display_value;
 }
 
 const operatorBTN = document.querySelectorAll(".column>.operator");
