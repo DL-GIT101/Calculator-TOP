@@ -80,6 +80,10 @@ nav {
     flex-grow: 1;
 }
 
-.operator:active,.digit:active {
-    background-color: hsl(208, 24%, 31%)
+.digit:active {
+    background-color: hsl(0, 1%, 34%)
+}
+
+.operator:active {
+    background-color: hsl(0, 33%, 26%)
 }
