@@ -3,90 +3,51 @@ const subtract = (a,b) => a - b;
 const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
 
-let firstNum;
-let operator;
-let secondNum;
-let result;
+//string 
+let firstNum = "";
+let operator = "";
+let secondNum = "";
 
 const operate = (a,b,operator) => {
+    let result;
     switch (operator) {
         case "+":
-        a = add(a,b);
+            result = add(a,b);
             break;
         case "-":
-        a = subtract(a,b);
+            result = subtract(a,b);
             break;    
         case "*":
-        a = multiply(a,b);
+            result = multiply(a,b);
             break;
         case "/":
-        a = divide(a,b);
+            result = divide(a,b);
             break;    
         default: 
-            //put display "Error on operate"
+            alert("error in operate");
             break;
     }
-    return a;
+    return result;
 }
-
+// big display
 const bigDisplay = document.querySelector(".text.big");
-const digitBTNs = document.querySelectorAll('.column>.digit');
+let bigDisplayText = bigDisplay.innerText;
+// buttons for digits
+const digitBTNs = document.querySelectorAll('.row>.digit');
 
 for(let digit of digitBTNs){
     digit.addEventListener("click", () =>{
-        display(digit.innerText);
+        display_In_Big(digit.innerText);
     });
 }
 
-const display = (digit) => {
-    let bigDisplayText = bigDisplay.innerText;
-    if(firstNum != undefined && operator != undefined){
-        bigDisplay.innerText = "";
+const display_In_Big = (digit) => {
+    if(firstNum == "0" && digit == "0"){
+        firstNum = "";
     }
-    if(bigDisplayText == "0"){
-        if(digit == "00"){
-            bigDisplay.innerText = "0";
-        }else if(digit == "."){
-            bigDisplay.innerText += digit;
-        }
-        else{
-            bigDisplay.innerText = "";
-            bigDisplay.innerText += digit;
-        }
-    }else if(bigDisplayText.includes(".") == true && digit == "."){
-        //none
-    }
-    else {
-        bigDisplay.innerText += digit;
-    }
+    firstNum += digit;
+    console.log(`firstNum: ${firstNum}  digit: ${digit}`)
+    bigDisplay.innerText = firstNum;
 }
 
 const operatorBTN = document.querySelectorAll(".column>.operator");
-
-for(let operator of operatorBTN){
-    operator.addEventListener("click", () => {
-        operation(operator.innerText);
-    });
-}
-
-const operation = (operator_clicked) => {
-    if(operator_clicked == "C"){
-        bigDisplay.innerText = "0";
-        firstNum = undefined;
-        operator = undefined;
-        secondNum = undefined;
-    }else if(operator_clicked.match(/[+\-*/]/)){
-        firstNum = bigDisplay.innerText;
-        operator = operator_clicked;
-    }else if(operator_clicked == "="){
-        if(secondNum == undefined){
-           //none
-        }else{
-            secondNum = bigDisplay.innerText;
-            result = operate(firstNum,secondNum,operator_clicked);
-            alert(result);
-        }
-    }else{
-        alert("error in fn operation");
-    }
-}
