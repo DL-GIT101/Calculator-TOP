@@ -64,7 +64,11 @@ nav {
     color: hsl(0, 0%, 20%);
     border-radius: 25px;
     border: 2px solid hsl(0, 0%, 20%);
-    
+}
+
+.digit.wide {
+    width: 100px;
+   
 }
 
 .operator {
