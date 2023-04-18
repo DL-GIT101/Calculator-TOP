@@ -89,8 +89,13 @@ const solving = (sign) => {
             second_Num = Number(display_value);
             display_value = operate(first_Num,second_Num,operator);
 
+            let result = display_value.toString();
+            if(result.length > 13){
+                display_value = display_value.toFixed(13);
+            }
+
             operator = sign;
-            first_Num = display_value;
+            first_Num = Number(display_value);
             smallDisplay.innerText = `${first_Num} ${operator}`;
 
             display_value = bigDisplay.innerText = "0";
@@ -111,7 +116,12 @@ const solving = (sign) => {
                 }else{
                     display_value = operate(first_Num,second_Num,operator);
                 }
-                
+
+                let result = display_value.toString();
+                if(result.length > 13){
+                    display_value = display_value.toFixed(13);
+                }
+
                 bigDisplay.innerText = display_value;
 
                 first_Num = second_Num = operator = undefined;
