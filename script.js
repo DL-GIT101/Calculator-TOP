@@ -56,6 +56,9 @@ const display_In_Big = (digit) => {
     bigDisplay.innerText = display_value;
 }
 
+const smallDisplay = document.querySelector(".text.small");
+let smallDisplayText = smallDisplay.innerText;
+
 //operator buttons plus C
 const operatorBTN = document.querySelectorAll(".operator");
 
@@ -68,7 +71,44 @@ for(let sign of operatorBTN){
 const solving = (sign) => {
     if(sign == "C"){
         display_value = "0";
+        first_Num = undefined;
+        second_Num = undefined;
+        operator = undefined;
         bigDisplay.innerText = display_value;
-    }else{}
+        smallDisplay.innerText = "0";
+    }else if(sign.match(/[+\-*/]/)){
+        if(first_Num == undefined){
+            first_Num = Number(display_value);
+
+            display_value = "0";
+            bigDisplay.innerText = display_value;
+
+            operator = sign;
+            smallDisplay.innerText = `${first_Num} ${operator}`;
+        }else if(second_Num == undefined){
+            second_Num = Number(display_value);
+            smallDisplay.innerText = `${first_Num} ${operator} ${second_Num} =`;
+            
+            display_value = operate(first_Num,second_Num,operator);
+            bigDisplay.innerText = display_value;
+
+            first_Num = display_value;
+            second_Num = undefined;
+            operator = sign;
+
+        }
+    }else if(sign == "="){
+            if(operator == undefined){
+                //do nothing
+            }else if(second_Num == undefined){
+                second_Num = Number(display_value);
+                smallDisplay.innerText = `${first_Num} ${operator} ${second_Num} =`;
+                
+                display_value = operate(first_Num,second_Num,operator);
+                bigDisplay.innerText = display_value;
+            }
+    }else{
+        alert("error in solving");
+    }
 }
 
