@@ -75,6 +75,16 @@ const solving = (sign) => {
         bigDisplay.innerText = display_value;
         smallDisplay.innerText = "0";
         
+    }else if(sign == "Del"){
+        let length = display_value.length;
+        if(length == 1){
+            display_value = "0";
+        }else{
+            display_value = display_value.slice(0,length-1);
+        }
+    
+        bigDisplay.innerText = display_value;
+
     }else if(/[+\-*/]/.test(sign)){
         if(first_Num == undefined){
             first_Num = Number(display_value);
@@ -121,7 +131,8 @@ const solving = (sign) => {
                 if(result.length > 13){
                     display_value = display_value.toFixed(13);
                 }
-
+                
+                display_value = display_value.toString();
                 bigDisplay.innerText = display_value;
 
                 first_Num = second_Num = operator = undefined;
