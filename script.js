@@ -39,6 +39,21 @@ for(let digit of digitBTNs){
         display_In_Big(digit.innerText);
     });
 }
+
+window.addEventListener("keydown", (event) => {
+    let presses = event.key;
+    if(/[0-9.]/.test(presses)){
+        display_In_Big(presses);
+    }else if(/[+\-*/=C]/.test(presses)){
+        solving(presses);
+    }else if(presses == "Backspace"){
+        solving("Del");
+    }else if(presses == "Enter"){
+        solving("=");
+    }else if(presses == "c"){
+        solving("C");
+    }
+})
 // check the previous function for reference
 let display_value = "0";
 const display_In_Big = (digit) => {
@@ -131,7 +146,7 @@ const solving = (sign) => {
                 if(result.length > 13){
                     display_value = display_value.toFixed(13);
                 }
-                
+
                 display_value = display_value.toString();
                 bigDisplay.innerText = display_value;
 
@@ -143,4 +158,3 @@ const solving = (sign) => {
         alert("error in solving");
     }
 }
-
